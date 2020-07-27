@@ -88,7 +88,7 @@ public class VehicleOdometerStepDefinitions {
 
     @Then("store manager should hover over to Fleet Module")
     public void storeManagerShouldHoverOverToFleetModule() {
-        actions.moveToElement(truckDriverHomePage.fleetModule).perform();
+        actions.moveToElement(storeManagerHomePage.fleetModule).perform();
     }
 
     @Then("store manger should select Vehicle Odometer link")
