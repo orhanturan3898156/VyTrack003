@@ -21,5 +21,8 @@ public class SalesManagerHomePage {
     @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
     public WebElement message;
 
+    @FindBy(xpath = "//span[.='Vehicles Fuel Logs']")
+    public WebElement vehicleFuelLogLink;
+
 
 }

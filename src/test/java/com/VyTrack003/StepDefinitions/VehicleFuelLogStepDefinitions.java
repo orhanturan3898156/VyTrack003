@@ -1,6 +1,8 @@
 package com.VyTrack003.StepDefinitions;
 
 import com.VyTrack003.Pages.LoginPage;
+import com.VyTrack003.Pages.SalesManagerHomePage;
+import com.VyTrack003.Pages.StoreManagerHomePage;
 import com.VyTrack003.Pages.TruckDriverHomePage;
 import com.VyTrack003.Utilities.Driver;
 import io.cucumber.java.en.Then;
@@ -11,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VehicleFuelLogStepDefinitions {
     TruckDriverHomePage truckDriverHomePage = new TruckDriverHomePage();
+    StoreManagerHomePage storeManagerHomePage = new StoreManagerHomePage();
+    SalesManagerHomePage salesManagerHomePage = new SalesManagerHomePage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
 
@@ -43,13 +47,13 @@ public class VehicleFuelLogStepDefinitions {
 
     @Then("store manager should select Vehicle Fuel Log link")
     public void storeManagerShouldSelectVehicleFuelLogLink() {
-
+        storeManagerHomePage.vehicleFuelLogLink.click();
 
     }
 
     @Then("sales manager should select Vehicle Fuel Log link")
     public void salesManagerShouldSelectVehicleFuelLogLink() {
-
+        salesManagerHomePage.vehicleFuelLogLink.click();
 
     }
 }
