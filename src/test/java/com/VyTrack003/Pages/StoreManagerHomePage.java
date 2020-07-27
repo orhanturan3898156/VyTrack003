@@ -22,4 +22,7 @@ public class StoreManagerHomePage {
     public WebElement message;
 
 
+    @FindBy(xpath = "//span[.='Vehicles Fuel Logs']")
+    public WebElement vehicleFuelLogLink;
+
 }

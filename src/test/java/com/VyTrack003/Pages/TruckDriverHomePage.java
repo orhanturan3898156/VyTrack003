@@ -18,5 +18,7 @@ public class TruckDriverHomePage {
     @FindBy(xpath = "//span[.='Vehicle Odometer']")
     public WebElement vehicleOdometerLink;
 
+    @FindBy(xpath = "//span[.='Vehicles Fuel Logs']")
+    public WebElement vehicleFuelLogLink;
 
 }
