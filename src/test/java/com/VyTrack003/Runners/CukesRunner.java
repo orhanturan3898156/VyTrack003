@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/VyTrack003/StepDefinitions",
         dryRun = false,
-        tags = "@vehicleOdometer-TruckDriver"
+        tags = "@VehicleOdometer"
 
 )
 public class CukesRunner {

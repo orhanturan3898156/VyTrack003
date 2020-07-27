@@ -1,6 +1,8 @@
 package com.VyTrack003.StepDefinitions;
 
 import com.VyTrack003.Pages.LoginPage;
+import com.VyTrack003.Pages.SalesManagerHomePage;
+import com.VyTrack003.Pages.StoreManagerHomePage;
 import com.VyTrack003.Pages.TruckDriverHomePage;
 import com.VyTrack003.Utilities.ConfigurationReader;
 import com.VyTrack003.Utilities.Driver;
@@ -17,6 +19,8 @@ public class VehicleOdometerStepDefinitions {
     LoginPage loginPage = new LoginPage();
 
     TruckDriverHomePage truckDriverHomePage = new TruckDriverHomePage();
+    StoreManagerHomePage storeManagerHomePage = new StoreManagerHomePage();
+    SalesManagerHomePage salesManagerHomePage = new SalesManagerHomePage();
 
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
@@ -68,18 +72,52 @@ public class VehicleOdometerStepDefinitions {
 
     @Then("truck driver should see Vehicle Odometer in the title")
     public void truck_driver_should_see_vehicle_odometer_in_the_title() {
-
-
         String expectedInTitle = "Vehicle Odometer";
         wait.until(ExpectedConditions.titleContains(expectedInTitle));
-
         String actualTitle = Driver.getDriver().getTitle();
 
-
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
-
 
     }
 
 
+    @When("store manager log in to account successfully")
+    public void storeManagerLogInToAccountSuccessfully() {
+        LoginPage.login("username_storeManager", "password");
+    }
+
+    @Then("store manager should hover over to Fleet Module")
+    public void storeManagerShouldHoverOverToFleetModule() {
+        actions.moveToElement(truckDriverHomePage.fleetModule).perform();
+    }
+
+    @Then("store manger should select Vehicle Odometer link")
+    public void storeMangerShouldSelectVehicleOdometerLink() {
+        storeManagerHomePage.vehicleOdometerLink.click();
+    }
+
+    @Then("store manager should see message")
+    public void storeManagerShouldSeeMessage() {
+        Assert.assertTrue(storeManagerHomePage.message.isDisplayed());
+    }
+
+    @When("sales manager log in to account successfully")
+    public void salesManagerLogInToAccountSuccessfully() {
+        LoginPage.login("username_salesManager", "password");
+    }
+
+    @Then("sales manager should hover over to Fleet Module")
+    public void salesManagerShouldHoverOverToFleetModule() {
+        actions.moveToElement(salesManagerHomePage.fleetModule).perform();
+    }
+
+    @Then("sales manger should select Vehicle Odometer link")
+    public void salesMangerShouldSelectVehicleOdometerLink() {
+        salesManagerHomePage.vehicleOdometerLink.click();
+    }
+
+    @Then("sales manager should see message")
+    public void salesManagerShouldSeeMessage() {
+        Assert.assertTrue(salesManagerHomePage.message.isDisplayed());
+    }
 }
